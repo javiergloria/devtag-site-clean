@@ -11,7 +11,6 @@ const navLinks = [
 	{ href: 'https://fragilemanifesto.info', label: 'FrAgile Manifesto' },
 	{ href: '/urban-street-photography', label: 'Urban & Street Photography' },
 	{ href: '/toshiradas', label: 'Toshiradas' },
-	{ href: '/bookshelve', label: 'Bookshelve' },
 	{ href: '/about-us', label: 'About us' },
 	{ href: '/contact', label: 'Contact' },
 ];
@@ -32,12 +31,14 @@ const navLinks = [
 	</head>
 	<body>
 		<header>
-			<a class="logo" href="/">&lt;dev/&gt;</a>
-			<nav>
-				{navLinks.map((link) => (
-					<a href={link.href}>{link.label}</a>
-				))}
-			</nav>
+			<div class="header-inner">
+				<a class="logo" href="/">&lt;dev/&gt;</a>
+				<nav>
+					{navLinks.map((link) => (
+						<a href={link.href}>{link.label}</a>
+					))}
+				</nav>
+			</div>
 		</header>
 		<slot />
 		<footer>Powered by Awesome awesomeness</footer>
@@ -54,11 +55,17 @@ const navLinks = [
 		margin: 0;
 	}
 	header {
+		background: #516999;
+	}
+	.header-inner {
+		max-width: 1200px;
+		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0.75rem;
 		padding: 1.25rem 1.5rem;
-		background: #516999;
 	}
 	.logo {
 		color: #fff;

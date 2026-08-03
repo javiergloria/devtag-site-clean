@@ -6,7 +6,6 @@ const tiles = [
 	{ href: 'https://fragilemanifesto.info', label: 'FrAgile Manifesto', img: '/images/tile-fragile-manifesto.jpg' },
 	{ href: '/urban-street-photography', label: 'Urban & Street Photography', img: '/images/tile-urban-street-photography.jpg' },
 	{ href: '/toshiradas', label: 'Toshiradas', img: '/images/tile-toshiradas.jpg' },
-	{ href: '/bookshelve', label: 'Bookshelve', img: '/images/tile-bookshelve.jpg' },
 	{ href: '/about-us', label: 'About us', img: '/images/tile-about-us.jpg' },
 	{ href: '/contact', label: 'Contact', img: '/images/tile-contact.jpg' },
 ];
@@ -14,18 +13,22 @@ const tiles = [
 
 <BaseLayout title="Development Tag" description="Development Tag, since 1999">
 	<div class="hero">
-		<h1>&lt;dev/&gt;</h1>
-		<p>Development Tag</p>
-		<p class="since">since 1999</p>
+		<div class="hero-inner">
+			<h1>&lt;dev/&gt;</h1>
+			<p>Development Tag</p>
+			<p class="since">since 1999</p>
+		</div>
 	</div>
 
-	<div class="grid">
-		{tiles.map((tile) => (
-			<a class="tile" href={tile.href}>
-				<img src={tile.img} alt={tile.label} loading="lazy" />
-				<span>{tile.label}</span>
-			</a>
-		))}
+	<div class="grid-outer">
+		<div class="grid">
+			{tiles.map((tile) => (
+				<a class="tile" href={tile.href}>
+					<img src={tile.img} alt={tile.label} loading="lazy" />
+					<span>{tile.label}</span>
+				</a>
+			))}
+		</div>
 	</div>
 </BaseLayout>
 
@@ -34,6 +37,10 @@ const tiles = [
 		background: #516999;
 		color: #fff;
 		text-align: center;
+	}
+	.hero-inner {
+		max-width: 1200px;
+		margin: 0 auto;
 		padding: 6rem 1.5rem;
 	}
 	.hero h1 {
@@ -48,6 +55,10 @@ const tiles = [
 	.hero .since {
 		font-size: 1rem;
 		opacity: 0.85;
+	}
+	.grid-outer {
+		max-width: 1200px;
+		margin: 0 auto;
 	}
 	.grid {
 		display: grid;
