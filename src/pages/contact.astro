@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="Contact | Development Tag"
+	description="We value authenticity and positive energy, so please reach out to us."
+>
+	<main>
+		<h1>Contact</h1>
+
+		<img class="hero" src="/images/contact-hero.jpg" alt="Contact" />
+
+		<p>We value authenticity and positive energy, so please reach out to us. However, kindly leave any negativity at the door as we strive to create a BS-free environment.</p>
+
+		<!-- TODO: replace YOUR_FORM_ID with your Formspree form ID from https://formspree.io -->
+		<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+			<label>
+				Name *
+				<input type="text" name="name" required />
+			</label>
+			<label>
+				Email Address *
+				<input type="email" name="email" required />
+			</label>
+			<label>
+				Message *
+				<textarea name="message" rows="6" required></textarea>
+			</label>
+			<button type="submit">Submit</button>
+		</form>
+	</main>
+</BaseLayout>
+
+<style>
+	.hero {
+		display: block;
+		width: 100%;
+		max-height: 400px;
+		object-fit: cover;
+		border-radius: 4px;
+		margin-bottom: 2rem;
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		margin-top: 2rem;
+	}
+	label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		font-size: 0.9rem;
+	}
+	input,
+	textarea {
+		font: inherit;
+		padding: 0.6rem 0.75rem;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+	button {
+		align-self: flex-start;
+		background: #516999;
+		color: #fff;
+		border: none;
+		padding: 0.7rem 2rem;
+		border-radius: 4px;
+		font-size: 1rem;
+		cursor: pointer;
+	}
+	button:hover {
+		background: #012b55;
+	}
+</style>

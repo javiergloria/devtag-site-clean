@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Toshiradas | Development Tag" description="un recorrido por los pensamientos de Toshi @ idalia.me">
+	<main>
+		<h1>Toshiradas</h1>
+		<img class="hero" src="/images/toshiradas-hero.jpg" alt="Toshiradas" />
+		<p>un recorrido por los pensamientos de Toshi @ <a href="https://idalia.me" target="_blank" rel="noopener">idalia.me</a></p>
+	</main>
+</BaseLayout>
+
+<style>
+	.hero {
+		display: block;
+		width: 100%;
+		max-height: 480px;
+		object-fit: cover;
+		border-radius: 4px;
+		margin-bottom: 2rem;
+	}
+</style>

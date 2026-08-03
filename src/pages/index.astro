@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const tiles = [
+	{ href: '/agile-coach-mantra', label: 'Agile Coach Mantra', img: '/images/tile-agile-coach-mantra.jpg' },
+	{ href: 'https://fragilemanifesto.info', label: 'FrAgile Manifesto', img: '/images/tile-fragile-manifesto.jpg' },
+	{ href: '/urban-street-photography', label: 'Urban & Street Photography', img: '/images/tile-urban-street-photography.jpg' },
+	{ href: '/toshiradas', label: 'Toshiradas', img: '/images/tile-toshiradas.jpg' },
+	{ href: '/bookshelve', label: 'Bookshelve', img: '/images/tile-bookshelve.jpg' },
+	{ href: '/about-us', label: 'About us', img: '/images/tile-about-us.jpg' },
+	{ href: '/contact', label: 'Contact', img: '/images/tile-contact.jpg' },
+];
+---
+
+<BaseLayout title="Development Tag" description="Development Tag, since 1999">
+	<div class="hero">
+		<h1>&lt;dev/&gt;</h1>
+		<p>Development Tag</p>
+		<p class="since">since 1999</p>
+	</div>
+
+	<div class="grid">
+		{tiles.map((tile) => (
+			<a class="tile" href={tile.href}>
+				<img src={tile.img} alt={tile.label} loading="lazy" />
+				<span>{tile.label}</span>
+			</a>
+		))}
+	</div>
+</BaseLayout>
+
+<style>
+	.hero {
+		background: #516999;
+		color: #fff;
+		text-align: center;
+		padding: 6rem 1.5rem;
+	}
+	.hero h1 {
+		color: #fff;
+		font-size: 2.5rem;
+		margin: 0 0 1rem;
+	}
+	.hero p {
+		margin: 0.25rem 0;
+		font-size: 1.3rem;
+	}
+	.hero .since {
+		font-size: 1rem;
+		opacity: 0.85;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	}
+	.tile {
+		position: relative;
+		aspect-ratio: 4 / 3;
+		overflow: hidden;
+		text-decoration: none;
+	}
+	.tile img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		transition: transform 0.3s ease;
+	}
+	.tile:hover img {
+		transform: scale(1.05);
+	}
+	.tile span {
+		position: absolute;
+		inset: auto 0 0 0;
+		background: rgba(1, 43, 85, 0.75);
+		color: #fff;
+		padding: 0.75rem 1rem;
+		font-size: 1rem;
+	}
+</style>

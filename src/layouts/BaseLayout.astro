@@ -1,0 +1,107 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = 'Development Tag, since 1999' } = Astro.props;
+
+const navLinks = [
+	{ href: '/agile-coach-mantra', label: 'Agile Coach Mantra' },
+	{ href: 'https://fragilemanifesto.info', label: 'FrAgile Manifesto' },
+	{ href: '/urban-street-photography', label: 'Urban & Street Photography' },
+	{ href: '/toshiradas', label: 'Toshiradas' },
+	{ href: '/bookshelve', label: 'Bookshelve' },
+	{ href: '/about-us', label: 'About us' },
+	{ href: '/contact', label: 'Contact' },
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta name="twitter:card" content="summary_large_image" />
+	</head>
+	<body>
+		<header>
+			<a class="logo" href="/">&lt;dev/&gt;</a>
+			<nav>
+				{navLinks.map((link) => (
+					<a href={link.href}>{link.label}</a>
+				))}
+			</nav>
+		</header>
+		<slot />
+		<footer>Powered by Awesome awesomeness</footer>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+		color: #1a1a1a;
+		line-height: 1.6;
+	}
+	body {
+		margin: 0;
+	}
+	header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1.25rem 1.5rem;
+		background: #516999;
+	}
+	.logo {
+		color: #fff;
+		font-weight: bold;
+		font-size: 1.3rem;
+		text-decoration: none;
+	}
+	nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: flex-end;
+	}
+	nav a {
+		color: #fff;
+		text-decoration: none;
+		font-size: 0.9rem;
+		opacity: 0.9;
+	}
+	nav a:hover {
+		opacity: 1;
+		text-decoration: underline;
+	}
+	main {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 3rem 1.5rem 5rem;
+	}
+	h1 {
+		font-size: 2rem;
+		margin-bottom: 1.5rem;
+		color: #012b55;
+	}
+	h2 {
+		color: #012b55;
+	}
+	a {
+		color: #345a8a;
+	}
+	footer {
+		text-align: center;
+		font-size: 0.8rem;
+		color: #888;
+		padding: 2rem 0;
+	}
+</style>
