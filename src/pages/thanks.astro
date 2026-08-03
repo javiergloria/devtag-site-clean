@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Thank you | Development Tag" description="Thanks for reaching out.">
+	<main class="thanks">
+		<h1>Thank you!</h1>
+		<p>Your message has been sent. We'll get back to you soon.</p>
+		<a class="back" href="/">&larr; Back to home</a>
+	</main>
+</BaseLayout>
+
+<style>
+	.thanks {
+		text-align: center;
+		padding-top: 5rem;
+		padding-bottom: 6rem;
+	}
+	.back {
+		display: inline-block;
+		margin-top: 1.5rem;
+	}
+</style>
