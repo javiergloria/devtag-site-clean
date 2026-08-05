@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Lightbox from '../components/Lightbox.astro';
 
 const photoCount = 188;
 const photos = Array.from({ length: photoCount }, (_, i) => {
@@ -15,28 +16,12 @@ const photos = Array.from({ length: photoCount }, (_, i) => {
 	<main class="wide">
 		<h1>Urban & Street Photography</h1>
 
-		<div class="gallery">
-			{photos.map((src, i) => (
-				<img src={src} alt={`Urban & street photography ${i + 1}`} loading="lazy" />
-			))}
-		</div>
+		<Lightbox photos={photos} altPrefix="Urban & street photography" />
 	</main>
 </BaseLayout>
 
 <style>
 	.wide {
 		max-width: 1200px;
-	}
-	.gallery {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-		gap: 0.75rem;
-	}
-	.gallery img {
-		width: 100%;
-		height: 280px;
-		object-fit: cover;
-		border-radius: 4px;
-		display: block;
 	}
 </style>
