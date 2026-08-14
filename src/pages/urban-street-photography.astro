@@ -1,12 +1,15 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Lightbox from '../components/Lightbox.astro';
 
-const photoCount = 188;
-const photos = Array.from({ length: photoCount }, (_, i) => {
-	const n = String(i + 1).padStart(3, '0');
-	return `/images/gallery/photo-${n}.jpg`;
-});
+const galleryDir = path.join(process.cwd(), 'public/images/gallery');
+const photos = fs
+	.readdirSync(galleryDir)
+	.filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
+	.sort()
+	.map((f) => `/images/gallery/${f}`);
 ---
 
 <BaseLayout
